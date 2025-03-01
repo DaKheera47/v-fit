@@ -1,11 +1,12 @@
 ---
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import Layout from "../layouts/Layout.astro";
-import SelectDemo from "@/components/SelectExample";
-import { actions } from "astro:actions";
+import SelectDemo from '@/components/SelectExample';
+import Layout from '../layouts/Layout.astro';
+import Ping from '@/components/Ping';
 ---
 
 <Layout>
-    <SelectDemo client:load />
+  <!-- <SelectDemo client:load /> -->
+
+  <Ping />
+  <Ping size={250} />
 </Layout>
