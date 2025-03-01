@@ -14,7 +14,7 @@ export const ImageCarousel: FC<ImageCarouselProps> = ({
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex(currentIndex => (currentIndex + 1) % images.length);
-    }, 2500);
+    }, 500);
 
     return () => clearInterval(interval);
   }, [images]);
