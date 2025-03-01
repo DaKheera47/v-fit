@@ -1,7 +1,9 @@
 ---
+import vectorImage from '@/assets/vector-text.png';
 import HoverCard from '@/components/HoverCard.astro';
-import { Badge } from '@/components/ui/badge';
 import { ImageCarousel } from '@/components/ImageCarousel';
+import { Badge } from '@/components/ui/badge';
+import { Image } from 'astro:assets';
 
 const hoverCards = [
   {
@@ -30,19 +32,19 @@ const hoverCards = [
     <ImageCarousel
       client:load
       images={[
-        '/images/hero/image1.png',
-        '/images/hero/image2.png',
-        '/images/hero/image3.png',
-        '/images/hero/image4.png',
-        '/images/hero/image5.png',
-        '/images/hero/image6.png',
-        '/images/hero/image7.png',
+        '/images/hero/image1.webp',
+        '/images/hero/image2.webp',
+        '/images/hero/image3.webp',
+        '/images/hero/image4.webp',
+        '/images/hero/image5.webp',
+        '/images/hero/image6.webp',
+        '/images/hero/image7.webp',
       ]}
     />
 
-    <img
+    <Image
       class='absolute right-0 bottom-0 -z-10 w-screen object-contain'
-      src='/images/hero/vector-text.png'
+      src={vectorImage}
       alt='vector'
     />
   </div>
