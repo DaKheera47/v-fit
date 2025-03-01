@@ -2,14 +2,56 @@
 import HoverCard from '@/components/HoverCard.astro';
 import { Badge } from '@/components/ui/badge';
 import Layout from '../layouts/Layout.astro';
+import { ImageCarousel } from '@/components/ImageCarousel';
+
+const hoverCards = [
+  {
+    heading: 'Easy-to-use',
+    description:
+      "Just upload your image, select a design and boom you'll see what you get",
+    link: '#',
+  },
+  {
+    heading: 'Try before buying',
+    description: 'You can try out apparel before buying!',
+    link: '#',
+  },
+];
 ---
 
 <Layout>
-  <HoverCard
-    heading='Easy-to-use'
-    description='Just upload your image, select a design and boom you’ll see what you get'
-    link='#'
-  />
+  <section class='flex'>
+    <div class='flex h-screen justify-center'>
+      <!-- hero -->
+      <div class='flex h-[65vh] flex-col justify-center'>
+        <Badge>Pakistans First Virtual Try-On</Badge>
+        <h1 class='font-bricolage text-9xl font-bold text-[#eaeaea] uppercase'>
+          VIRTUAL <br /> TRY-ON
+        </h1>
+      </div>
 
-  <Badge>Pakistan’s First Virtual Try-On</Badge>
+      <ImageCarousel
+        client:load
+        images={[
+          '/images/hero/image1.png',
+          '/images/hero/image2.png',
+          '/images/hero/image3.png',
+          '/images/hero/image4.png',
+          '/images/hero/image5.png',
+          '/images/hero/image6.png',
+          '/images/hero/image7.png',
+        ]}
+      />
+
+      <img
+        class='absolute right-0 bottom-0 -z-10 w-screen object-contain'
+        src='/images/hero/vector-text.png'
+        alt='vector'
+      />
+    </div>
+
+    <div class='flex h-[65vh] w-1/5 flex-col justify-center space-y-4'>
+      {hoverCards.map(card => <HoverCard {...card} />)}
+    </div>
+  </section>
 </Layout>
