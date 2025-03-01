@@ -1,0 +1,39 @@
+---
+import { ArrowDownLeft } from 'lucide-react';
+import Ping from './Ping';
+
+interface Props {
+  heading: string;
+  description: string;
+  link: string;
+}
+
+const { heading, description, link } = Astro.props;
+---
+
+<div class='group flex items-center'>
+  <div
+    class='flex w-[396px] items-start overflow-hidden rounded-[8px] border border-[#333] bg-[#1c1c1c] p-4 transition-all duration-300 ease-out group-hover:w-[276px]'
+  >
+    <Ping
+      size={14}
+      className='mt-[5px] mr-4'
+    />
+
+    <div class='flex-1 text-white'>
+      <h3 class='mb-1 text-base font-semibold'>
+        {heading}
+      </h3>
+      <p class='m-0 text-sm leading-[1.2] text-[#ccc]'>
+        {description}
+      </p>
+    </div>
+  </div>
+
+  <a
+    class='ml-[18px] hidden size-[102px] shrink-0 items-center justify-center rounded-full border border-[#d2dfff7a] text-white opacity-0 transition-all duration-200 ease-in-out group-hover:flex group-hover:opacity-100 hover:bg-[#444] starting:opacity-0'
+    href={link}
+  >
+    <ArrowDownLeft className='h-10 w-10 text-[#bdbdbd]' />
+  </a>
+</div>

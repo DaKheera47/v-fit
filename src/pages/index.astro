@@ -2,11 +2,15 @@
 import SelectDemo from '@/components/SelectExample';
 import Layout from '../layouts/Layout.astro';
 import Ping from '@/components/Ping';
+import HoverCard from '@/components/HoverCard.astro';
 ---
 
 <Layout>
   <!-- <SelectDemo client:load /> -->
 
-  <Ping />
-  <Ping size={250} />
+  <HoverCard
+    heading='Easy-to-use'
+    description='Just upload your image, select a design and boom you’ll see what you get'
+    link='#'
+  />
 </Layout>

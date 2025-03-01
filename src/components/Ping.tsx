@@ -5,14 +5,16 @@ interface PingProps {
   width?: number;
   height?: number;
   size?: number;
+  className?: string;
 }
 
-const Ping: React.FC<PingProps> = ({ width, height, size }) => {
+const Ping: React.FC<PingProps> = ({ className, width, height, size }) => {
   const finalWidth = size ?? width ?? 14;
   const finalHeight = size ?? height ?? 14;
 
   return (
     <img
+      className={className}
       src={PingImage.src}
       alt="Ping"
       width={finalWidth}
