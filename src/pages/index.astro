@@ -1,16 +1,15 @@
 ---
-import SelectDemo from '@/components/SelectExample';
-import Layout from '../layouts/Layout.astro';
-import Ping from '@/components/Ping';
 import HoverCard from '@/components/HoverCard.astro';
+import { Badge } from '@/components/ui/badge';
+import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-  <!-- <SelectDemo client:load /> -->
-
   <HoverCard
     heading='Easy-to-use'
     description='Just upload your image, select a design and boom you’ll see what you get'
     link='#'
   />
+
+  <Badge>Pakistan’s First Virtual Try-On</Badge>
 </Layout>
