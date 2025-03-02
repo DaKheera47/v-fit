@@ -10,15 +10,10 @@ import {
 } from '@/components/ui/card';
 import { FancyButton } from '@/components/ui/fancy-button';
 import { cn } from '@/lib/utils';
+import SectionLayout from './SectionLayout.astro';
 ---
 
-<section class='mt-80 pb-20 flex flex-col items-center justify-center space-y-8'>
-  <h1
-    class='font-bricolage w-full text-center text-7xl font-bold text-[#eaeaea] uppercase'
-  >
-    Upload Your Image
-  </h1>
-
+<SectionLayout title='Upload Your Image'>
   <Card className={cn('w-[380px] text-center')}>
     <CardHeader>
       <CardTitle>Upload Image</CardTitle>
@@ -28,7 +23,7 @@ import { cn } from '@/lib/utils';
     </CardHeader>
 
     <CardFooter className='flex w-full justify-center'>
-      <FancyButton client:idle> Upload Here </FancyButton>
+      <FancyButton client:idle>Upload Here</FancyButton>
     </CardFooter>
   </Card>
-</section>
+</SectionLayout>

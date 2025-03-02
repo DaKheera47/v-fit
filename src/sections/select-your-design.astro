@@ -1,0 +1,12 @@
+---
+import DesignSelector from '@/components/DesignSelector/DesignSelector';
+import { DESIGN_ITEMS } from '@/components/DesignSelector/design-items';
+import SectionLayout from './SectionLayout.astro';
+---
+
+<SectionLayout title='Select your Design'>
+  <DesignSelector
+    client:idle
+    items={DESIGN_ITEMS}
+  />
+</SectionLayout>
