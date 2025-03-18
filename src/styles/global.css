@@ -133,3 +133,9 @@
 .bg-gray-to-black {
   background: linear-gradient(180deg, #5050500f 15%, #000000 100%);
 }
+.title-text {
+  background: linear-gradient(90deg, #ffffff 0%, #bbbbbb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

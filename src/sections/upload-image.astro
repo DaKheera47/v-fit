@@ -13,8 +13,12 @@ import { cn } from '@/lib/utils';
 import SectionLayout from './SectionLayout.astro';
 ---
 
-<SectionLayout title='Upload Your Image'>
-  <Card className={cn('w-[380px] text-center bg-gray-to-black')}>
+<SectionLayout
+  title='Upload Your <br /> Image'
+  subtitle='Step 1'
+  description='Click on the upload button and select an image of yourself to try on different pieces of apparel and see which one fits you the best!'
+>
+  <Card className={cn('bg-gray-to-black w-[380px] text-center')}>
     <CardHeader>
       <CardTitle>Upload Image</CardTitle>
       <CardDescription className='mx-auto w-4/5 text-balance'>
