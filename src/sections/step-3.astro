@@ -1,0 +1,33 @@
+---
+import DesignSelector from '@/components/DesignSelector/DesignSelector';
+import { DESIGN_ITEMS } from '@/components/DesignSelector/design-items';
+import { FancyButton } from '@/components/ui/fancy-button';
+import SectionLayout from './SectionLayout.astro';
+import ItemSizeSelector from '@/components/ItemSizeSelector';
+---
+
+<SectionLayout
+  title='Get it <br /> delivered!'
+  subtitle='Step 3'
+>
+  <div
+    slot='cta'
+    class='mt-8 flex w-full flex-col gap-y-4'
+  >
+    <span class='text-balance text-gray-400'> Select Size </span>
+    <ItemSizeSelector client:idle />
+
+    <FancyButton
+      duration={0.5}
+      client:idle
+      href='/catalog'
+    >
+      Generate Preview - See the magic in action!
+    </FancyButton>
+  </div>
+
+  <DesignSelector
+    client:idle
+    items={DESIGN_ITEMS}
+  />
+</SectionLayout>
