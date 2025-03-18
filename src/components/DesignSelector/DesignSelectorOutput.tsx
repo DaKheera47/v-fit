@@ -10,11 +10,11 @@ const DesignSelectorOutput: React.FC<DesignSelectorOutputProps> = ({
   message,
 }) => {
   return (
-    <div className="bg-gray-to-black mx-auto size-full overflow-hidden rounded-lg bg-black p-4 text-white shadow-lg ring ring-neutral-700">
+    <div className="bg-gray-to-black mx-auto h-full rounded-lg bg-black p-4 text-white shadow-lg ring ring-neutral-700">
       <img
         src={imageUrl}
         alt="you, wearing your design"
-        className="w-full rounded-lg object-contain"
+        className="w-full rounded-lg object-cover"
       />
 
       <p className="mt-4 mb-2 text-center text-2xl">{message}</p>

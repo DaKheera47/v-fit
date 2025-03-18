@@ -20,7 +20,7 @@ const SelectableItem: React.FC<SelectableItemProps> = ({ url, title, idx }) => {
     <div
       onClick={() => setSelectionIdx(idx)}
       className={cn(
-        'relative flex cursor-pointer flex-col items-center rounded-lg bg-neutral-900 p-4 ring transition-all duration-300 hover:ring-neutral-400',
+        'bg-gray-to-black relative flex cursor-pointer flex-col items-center rounded-lg p-4 ring transition-all duration-300 hover:ring-neutral-400',
         isSelected
           ? 'opacity-100 hover:ring-white'
           : 'opacity-50 ring-neutral-700'

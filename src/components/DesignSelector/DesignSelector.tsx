@@ -13,8 +13,8 @@ interface Props {
 export default function DesignSelector({ items }: Props) {
   return (
     <DesignSelectorProvider>
-      <div className="flex w-full items-center justify-between">
-        <div className="grid grid-cols-3 gap-4">
+      <div className="mx-auto flex w-full items-center space-x-8">
+        <div className="grid grid-cols-3 gap-8">
           {items.map((item, index) => (
             <SelectableItem key={index} {...item} idx={index} />
           ))}
@@ -23,12 +23,11 @@ export default function DesignSelector({ items }: Props) {
         <DesignSelectorContext.Consumer>
           {({ transformedImage }) =>
             transformedImage && (
-              <div className="flex h-full w-2/5 flex-col items-center">
-                <DesignSelectorOutput
-                  imageUrl={transformedImage.url}
-                  message="This is your selected design."
-                />
-              </div>
+              <SelectableItem
+                url={transformedImage.url}
+                title="Your design"
+                idx={items.length}
+              />
             )
           }
         </DesignSelectorContext.Consumer>
