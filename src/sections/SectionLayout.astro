@@ -1,14 +1,18 @@
 ---
+import Ping from '@/components/Ping';
+
 const { title, subtitle, description } = Astro.props;
 ---
 
 <section class='mt-80 grid snap-center grid-cols-2 place-items-center pb-20'>
   <div>
-    <span
-      class='font-bricolage title-text text-3xl font-bold tracking-wide uppercase'
+    <div
+      class='font-bricolage title-text flex space-x-2 text-3xl font-bold tracking-wide uppercase'
     >
-      {subtitle}
-    </span>
+      <Ping />
+
+      <span>{subtitle}</span>
+    </div>
     <h1
       class='font-bricolage title-text w-full text-8xl leading-[1] font-bold text-balance 2xl:text-9xl'
       set:html={title}

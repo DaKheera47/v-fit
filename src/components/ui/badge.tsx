@@ -51,7 +51,7 @@ function Badge({
       className={cn(badgeVariants({ variant }), className)}
       {...props}
     >
-      {hasPing && <Ping className="mt-0.5" size={10} />}
+      {hasPing && <Ping className="mt-0.5 mr-1" size={10} />}
       {children}
     </Comp>
   );
