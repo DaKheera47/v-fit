@@ -6,7 +6,9 @@ import Layout from '@/layouts/Layout.astro';
 ---
 
 <Layout>
-  <Hero />
-  <UploadImage />
-  <SelectYourDesign />
+  <div slot='scroller'>
+    <Hero />
+    <UploadImage />
+    <SelectYourDesign />
+  </div>
 </Layout>

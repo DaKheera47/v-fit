@@ -20,37 +20,39 @@ const hoverCards = [
 ];
 ---
 
-<section class='flex'>
-  <div class='flex h-screen justify-center'>
-    <div class='flex h-[65vh] flex-col justify-center'>
-      <Badge variant='custom'>Pakistans First Virtual Try-On</Badge>
+<section
+  class='relative grid h-screen snap-center grid-cols-3 place-items-center'
+>
+  <div class='flex flex-col justify-center'>
+    <Badge variant='custom'>Pakistans First Virtual Try-On</Badge>
 
-      <h1 class='font-bricolage text-9xl font-bold text-[#eaeaea] uppercase'>
-        VIRTUAL <br /> TRY-ON
-      </h1>
-    </div>
-
-    <ImageCarousel
-      client:load
-      images={[
-        '/images/hero/image1.webp',
-        '/images/hero/image2.webp',
-        '/images/hero/image3.webp',
-        '/images/hero/image4.webp',
-        '/images/hero/image5.webp',
-        '/images/hero/image6.webp',
-        '/images/hero/image7.webp',
-      ]}
-    />
-
-    <Image
-      class='absolute right-0 bottom-0 -z-10 w-screen object-contain'
-      src={vectorImage}
-      alt='vector'
-    />
+    <h1
+      class='font-bricolage font-bold text-[#eaeaea] uppercase lg:text-8xl 2xl:text-9xl'
+    >
+      VIRTUAL <br class='hidden 2xl:block' /> TRY-ON
+    </h1>
   </div>
 
-  <div class='flex h-[65vh] w-1/5 flex-col justify-center space-y-4'>
+  <ImageCarousel
+    client:load
+    images={[
+      '/images/hero/image1.webp',
+      '/images/hero/image2.webp',
+      '/images/hero/image3.webp',
+      '/images/hero/image4.webp',
+      '/images/hero/image5.webp',
+      '/images/hero/image6.webp',
+      '/images/hero/image7.webp',
+    ]}
+  />
+
+  <Image
+    class='absolute right-0 bottom-0 -z-20 object-cover'
+    src={vectorImage}
+    alt='vector'
+  />
+
+  <div class='flex flex-col justify-center space-y-4 w-sm'>
     {hoverCards.map(card => <HoverCard {...card} />)}
   </div>
 </section>

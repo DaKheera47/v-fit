@@ -1,10 +1,27 @@
 ---
 import DesignSelector from '@/components/DesignSelector/DesignSelector';
 import { DESIGN_ITEMS } from '@/components/DesignSelector/design-items';
+import { FancyButton } from '@/components/ui/fancy-button';
 import SectionLayout from './SectionLayout.astro';
 ---
 
-<SectionLayout title='Select your Design'>
+<SectionLayout
+  title='Select Design'
+  subtitle='Step 2'
+  description='Select one of the designs that you want a preview of and click below to proceed'
+>
+  <div
+    slot='cta'
+    class='mt-8 w-full'
+  >
+    <FancyButton
+      duration={0.5}
+      client:idle
+      href='/catalog'
+      >Generate Preview - See the magic in action!</FancyButton
+    >
+  </div>
+
   <DesignSelector
     client:idle
     items={DESIGN_ITEMS}

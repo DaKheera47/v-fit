@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils';
 import { type FC, useState, useEffect } from 'react';
 
 interface ImageCarouselProps {
@@ -20,7 +21,7 @@ export const ImageCarousel: FC<ImageCarouselProps> = ({
   }, [images]);
 
   return (
-    <div className={className}>
+    <div className={cn("-z-10", className)}>
       <img src={images[index]} alt={`Carousel image ${index + 1}`} />
     </div>
   );

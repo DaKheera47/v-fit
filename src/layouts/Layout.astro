@@ -30,12 +30,15 @@ const navItems = [
   </head>
 
   <body class='dark bg-[#010101]'>
-    <main class='container mx-auto'>
-      <Navbar
-        client:load
-        navItems={navItems}
-      />
-      <slot />
+    <Navbar
+      client:load
+      navItems={navItems}
+    />
+
+    <main
+      class='container mx-auto overflow-x-hidden h-screen snap-y snap-mandatory overflow-y-scroll'
+    >
+      <slot name='scroller' />
     </main>
   </body>
 </html>

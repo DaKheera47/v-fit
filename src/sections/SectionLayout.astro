@@ -2,7 +2,7 @@
 const { title, subtitle, description } = Astro.props;
 ---
 
-<section class='mt-80 grid grid-cols-2 pb-20'>
+<section class='mt-80 grid snap-center grid-cols-2 place-items-center pb-20'>
   <div>
     <span
       class='font-bricolage title-text text-3xl font-bold tracking-wide uppercase'
@@ -10,11 +10,13 @@ const { title, subtitle, description } = Astro.props;
       {subtitle}
     </span>
     <h1
-      class='font-bricolage title-text w-full text-9xl leading-31 font-bold text-balance'
+      class='font-bricolage title-text w-full text-8xl leading-[1] font-bold text-balance 2xl:text-9xl'
       set:html={title}
     />
 
     <p class='mt-4 w-4/5 text-balance text-gray-400'>{description}</p>
+
+    <slot name='cta' />
   </div>
 
   <div class='flex w-full items-center justify-center'>
