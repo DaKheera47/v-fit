@@ -11,9 +11,9 @@ interface Props {
 const { heading, description, link } = Astro.props;
 ---
 
-<div class='group flex h-fit w-fit items-center'>
+<div class='group flex h-fit w-full items-center'>
   <div
-    class='flex w-[396px] items-start overflow-hidden rounded-[8px] border border-[#333] bg-gray-to-black p-4 transition-all duration-300 ease-out group-hover:w-[276px]'
+    class='bg-gray-to-black flex min-w-[396px] items-start overflow-hidden rounded-[8px] border border-[#333] p-4 transition-all duration-300 ease-out group-hover:min-w-[276px] group-hover:border-[#d2dfff7a]'
   >
     <Ping
       size={14}
@@ -24,14 +24,14 @@ const { heading, description, link } = Astro.props;
       <h3 class='mb-1 text-base font-semibold'>
         {heading}
       </h3>
-      <p class='m-0 text-sm leading-[1.2] text-[#ccc]'>
+      <p class='m-0 text-sm leading-[1.2] text-balance text-[#ccc]'>
         {description}
       </p>
     </div>
   </div>
 
   <a
-    class='ml-[18px] hidden size-[102px] shrink-0 items-center justify-center rounded-full border border-[#d2dfff7a] text-white opacity-0 transition-all duration-200 ease-in-out group-hover:flex group-hover:opacity-100 hover:bg-[#444] starting:opacity-0'
+    class='pointer-events-none ml-[18px] flex size-[102px] shrink-0 translate-x-[-50px] items-center justify-center rounded-full border border-[#d2dfff7a] text-white opacity-0 transition-all duration-200 ease-in-out group-hover:pointer-events-auto group-hover:translate-x-0 group-hover:opacity-100 hover:bg-[#444]'
     href={link}
   >
     <ArrowDownLeft className='h-10 w-10 text-[#bdbdbd]' />
