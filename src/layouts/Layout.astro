@@ -1,5 +1,12 @@
 ---
+import { Navbar } from '@/components/Navbar';
 import '../styles/global.css';
+
+const navItems = [
+  { name: 'Home', link: '/' },
+  { name: 'Catalog', link: '/catalog' },
+  { name: 'Cart', link: '/cart' },
+];
 ---
 
 <!doctype html>
@@ -24,6 +31,10 @@ import '../styles/global.css';
 
   <body class='dark bg-[#010101]'>
     <main class='container mx-auto'>
+      <Navbar
+        client:load
+        navItems={navItems}
+      />
       <slot />
     </main>
   </body>

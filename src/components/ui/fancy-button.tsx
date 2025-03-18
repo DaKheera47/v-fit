@@ -13,6 +13,8 @@ export function FancyButton({
   as: Tag = 'button',
   duration = 1,
   clockwise = true,
+  variant = 'primary',
+  href,
   ...props
 }: React.PropsWithChildren<
   {
@@ -21,6 +23,8 @@ export function FancyButton({
     className?: string;
     duration?: number;
     clockwise?: boolean;
+    variant?: 'primary' | 'secondary';
+    href?: string;
   } & React.HTMLAttributes<HTMLElement>
 >) {
   const [hovered, setHovered] = useState<boolean>(false);
@@ -66,11 +70,20 @@ export function FancyButton({
         'relative flex h-min w-fit cursor-pointer flex-col flex-nowrap content-center items-center justify-center gap-10 overflow-visible rounded-full bg-black/20 decoration-clone p-px transition duration-500 hover:bg-black/10 dark:bg-white/5',
         containerClassName
       )}
+      onClick={() => {
+        if (Tag === 'a') {
+          window.location.href = href!;
+        }
+      }}
       {...props}
     >
       <div
         className={cn(
-          'z-10 w-auto rounded-[inherit] bg-[#200909] px-4 py-2 text-white',
+          'z-10 w-auto rounded-[inherit] px-4 py-2 text-white',
+          {
+            'bg-[#200909]': variant === 'primary',
+            'bg-[#B20023]': variant === 'secondary',
+          },
           className
         )}
       >
