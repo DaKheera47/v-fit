@@ -1,5 +1,4 @@
 ---
-import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
@@ -20,14 +19,35 @@ import SectionLayout from './SectionLayout.astro';
 >
   <Card className={cn('bg-gray-to-black w-[380px] text-center')}>
     <CardHeader>
-      <CardTitle>Upload Image</CardTitle>
+      <CardTitle className='text-xl'>Upload Image</CardTitle>
       <CardDescription className='mx-auto w-4/5 text-balance'>
         Take a picture of yourself standing straight and upload it here
       </CardDescription>
     </CardHeader>
 
+    <CardContent
+      className='my-4 flex flex-col items-center justify-center gap-y-1'
+    >
+      <FancyButton
+        duration={0.5}
+        client:idle
+        >Upload Here</FancyButton
+      >
+
+      <span class='text-sm text-balance text-gray-400'>
+        PNG, JPG (&lt;2MB)
+      </span>
+    </CardContent>
+
     <CardFooter className='flex w-full justify-center'>
-      <FancyButton client:idle>Upload Here</FancyButton>
+      <span class='text-sm text-balance text-gray-400'>
+        Don't want to? <a
+          href='/catalog'
+          class='link'
+        >
+          Skip
+        </a> to the catalog
+      </span>
     </CardFooter>
   </Card>
 </SectionLayout>

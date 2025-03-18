@@ -139,3 +139,10 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+.link {
+  color: #de012b;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
