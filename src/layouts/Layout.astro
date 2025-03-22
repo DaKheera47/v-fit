@@ -7,6 +7,12 @@ const navItems = [
   { name: 'Catalog', link: '/catalog' },
   { name: 'Cart', link: '/cart' },
 ];
+
+type LayoutProps = {
+  isScroller: boolean;
+};
+
+const { isScroller } = Astro.props as LayoutProps;
 ---
 
 <!doctype html>
@@ -36,9 +42,122 @@ const navItems = [
     />
 
     <main
-      class='container mx-auto h-screen snap-y snap-mandatory overflow-x-hidden overflow-y-scroll'
+      class:list={[
+        'container mx-auto',
+        isScroller &&
+          'h-screen snap-y snap-mandatory overflow-x-hidden overflow-y-scroll',
+      ]}
     >
-      <slot name='scroller' />
+      <slot />
     </main>
   </body>
+
+  <script>
+    // Initialize when the script loads
+    document.addEventListener('DOMContentLoaded', () => {
+      // Create a container for ping effects
+      const effectsContainer = document.createElement('div');
+      effectsContainer.id = 'ping-effects-container';
+      effectsContainer.style.position = 'fixed';
+      effectsContainer.style.top = '0';
+      effectsContainer.style.left = '0';
+      effectsContainer.style.width = '100%';
+      effectsContainer.style.height = '100%';
+      effectsContainer.style.pointerEvents = 'none';
+      effectsContainer.style.zIndex = '-1';
+      document.body.appendChild(effectsContainer);
+
+      // Configuration options
+      const config = {
+        effectClass: 'bg-green-500/100 rounded-full', // Default Tailwind classes
+        scaleMultiplier: 50, // How much larger the effect is compared to the ping
+        refreshRate: 100, // How often to update positions (ms)
+      };
+
+      // Store all ping elements and their effects
+      const pingElements = new Map();
+
+      // Function to create or update ping effects
+      // Function to create or update ping effects
+      function updatePingEffects() {
+        // Find all ping elements in the document
+        const pings = document.querySelectorAll('[data-ping-effect]');
+
+        // Process each ping
+        pings.forEach(ping => {
+          const pingElement = ping as HTMLElement;
+
+          // Get or create an ID for tracking
+          let id = pingElement.dataset.pingEffectId;
+          if (!id) {
+            id = `ping-effect-${Math.random().toString(36).substr(2, 9)}`;
+            pingElement.dataset.pingEffectId = id;
+          }
+
+          // Get dimensions
+          const rect = pingElement.getBoundingClientRect();
+          const width = (pingElement as HTMLImageElement).width || rect.width;
+          const height =
+            (pingElement as HTMLImageElement).height || rect.height;
+
+          // Use individual scale factor if available, otherwise use default
+          const individualScaleFactor = pingElement.dataset.pingScaleFactor
+            ? parseFloat(pingElement.dataset.pingScaleFactor)
+            : config.scaleMultiplier;
+
+          // Find or create the effect element
+          let effect = pingElements.get(id);
+          if (!effect) {
+            effect = document.createElement('div');
+
+            effect.classList.add(...config.effectClass.split(' '));
+            // Apply the radial gradient style directly
+            effect.style.background =
+              'radial-gradient(circle, rgba(140, 0, 5, 0.15) 0%, rgba(24, 0, 5, 0.05) 40%, transparent 70%)';
+            effect.style.borderRadius = '9999px'; // rounded-full equivalent
+
+            effectsContainer.appendChild(effect);
+            pingElements.set(id, effect);
+          }
+
+          // Position and size the effect
+          effect.style.position = 'absolute';
+          effect.style.width = `${width * individualScaleFactor}px`;
+          effect.style.height = `${height * individualScaleFactor}px`;
+          effect.style.left = `${rect.left + width / 2 - (width * individualScaleFactor) / 2}px`;
+          effect.style.top = `${rect.top + height / 2 - (height * individualScaleFactor) / 2}px`;
+        });
+
+        // Clean up any effects whose pings no longer exist
+        pingElements.forEach((effect, id) => {
+          if (!document.querySelector(`[data-ping-effect-id="${id}"]`)) {
+            effect.remove();
+            pingElements.delete(id);
+          }
+        });
+      }
+
+      // Set up periodic updates and event listeners
+      setInterval(updatePingEffects, config.refreshRate);
+      window.addEventListener('scroll', updatePingEffects);
+      window.addEventListener('resize', updatePingEffects);
+
+      // @ts-expect-error we've done it, and it exists
+      window.configurePingEffects = function (options: PingEffectOptions) {
+        Object.assign(config, options);
+
+        // Update class on existing effects if that changed
+        pingElements.forEach(effect => {
+          if (options.effectClass) {
+            // Remove all classes and add new ones
+            effect.className = '';
+            effect.classList.add(...options.effectClass.split(' '));
+          }
+        });
+
+        // Force update with new settings
+        updatePingEffects();
+      };
+    });
+  </script>
 </html>

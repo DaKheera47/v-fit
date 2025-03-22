@@ -33,6 +33,7 @@ interface BadgeProps
     VariantProps<typeof badgeVariants> {
   asChild?: boolean;
   hasPing?: boolean;
+  pingScaleFactor?: number;
 }
 
 function Badge({
@@ -41,6 +42,7 @@ function Badge({
   hasPing = true,
   asChild = false,
   children,
+  pingScaleFactor,
   ...props
 }: BadgeProps) {
   const Comp = asChild ? Slot : 'span';
@@ -51,7 +53,7 @@ function Badge({
       className={cn(badgeVariants({ variant }), className)}
       {...props}
     >
-      {hasPing && <Ping className="mt-0.5 mr-1" size={10} />}
+      {hasPing && <Ping className="mt-0.5 mr-1" size={10} scaleFactor={pingScaleFactor} />}
       {children}
     </Comp>
   );

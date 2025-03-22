@@ -16,7 +16,9 @@ const { heading, description, link } = Astro.props;
     class='bg-gray-to-black flex min-w-[396px] items-start overflow-hidden rounded-[8px] border border-[#333] p-4 transition-all duration-300 ease-out group-hover:min-w-[276px] group-hover:border-[#d2dfff7a]'
   >
     <Ping
+      client:load
       size={14}
+      scaleFactor={20}
       className='mt-[5px] mr-4'
     />
 

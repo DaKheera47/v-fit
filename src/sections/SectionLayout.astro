@@ -9,7 +9,7 @@ const { title, subtitle, description } = Astro.props;
     <div
       class='font-bricolage title-text flex space-x-2 text-3xl font-bold tracking-wide uppercase'
     >
-      <Ping />
+      <Ping client:load />
 
       <span>{subtitle}</span>
     </div>
