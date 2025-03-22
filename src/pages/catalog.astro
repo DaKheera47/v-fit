@@ -1,0 +1,38 @@
+---
+import Hero from '@/sections/hero.astro';
+import Step1 from '@/sections/step-1.astro';
+import Step2 from '@/sections/step-2.astro';
+import Step3 from '@/sections/step-3.astro';
+import Layout from '@/layouts/Layout.astro';
+import Footer from '@/components/Footer.astro';
+import { Badge } from '@/components/ui/badge';
+import items from '@/assets/catalog-items.json';
+import CatalogCard from '@/components/CatalogCard.astro';
+---
+
+<Layout isScroller={false}>
+  <div class='relative flex mt-60 mb-12 items-center'>
+    <div>
+      <Badge
+        client:load
+        variant='custom'
+      >
+        Pakistans First Virtual Try-On
+      </Badge>
+
+      <h1
+        class='font-bricolage font-bold text-[#eaeaea] uppercase md:text-8xl 2xl:text-9xl'
+      >
+        our <br class='hidden 2xl:block' /> catalog
+      </h1>
+    </div>
+  </div>
+
+  <div
+    class='grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6'
+  >
+    {items.map(item => <CatalogCard {...item} />)}
+  </div>
+
+  <Footer />
+</Layout>

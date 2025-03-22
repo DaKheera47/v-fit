@@ -1,0 +1,134 @@
+[
+  {
+    "id": "1",
+    "name": "Item 1",
+    "description": "Description for Item 1",
+    "price": 10.99,
+    "image": "/images/designs/design1.webp",
+    "category": "Category A",
+    "stock": 100,
+    "rating": 4.5,
+    "reviews": [
+      {
+        "user": "User1",
+        "comment": "Great product!",
+        "rating": 5
+      },
+      {
+        "user": "User2",
+        "comment": "Good value for money.",
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Item 2",
+    "description": "Description for Item 2",
+    "price": 15.99,
+    "image": "/images/designs/design1.webp",
+    "category": "Category B",
+    "stock": 80,
+    "rating": 4.2,
+    "reviews": [
+      {
+        "user": "User3",
+        "comment": "Very satisfied!",
+        "rating": 5
+      },
+      {
+        "user": "User4",
+        "comment": "Nice quality.",
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Item 3",
+    "description": "Description for Item 3",
+    "price": 8.99,
+    "image": "/images/designs/design1.webp",
+    "category": "Category A",
+    "stock": 120,
+    "rating": 4.6,
+    "reviews": [
+      {
+        "user": "User5",
+        "comment": "Excellent!",
+        "rating": 5
+      },
+      {
+        "user": "User6",
+        "comment": "Highly recommend.",
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Item 4",
+    "description": "Description for Item 4",
+    "price": 20.99,
+    "image": "/images/designs/design1.webp",
+    "category": "Category C",
+    "stock": 50,
+    "rating": 4.0,
+    "reviews": [
+      {
+        "user": "User6",
+        "comment": "Good product.",
+        "rating": 4
+      },
+      {
+        "user": "User8",
+        "comment": "Satisfied with the purchase.",
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "name": "Item 5",
+    "description": "Description for Item 5",
+    "price": 12.99,
+    "image": "/images/designs/design1.webp",
+    "category": "Category B",
+    "stock": 90,
+    "rating": 4.6,
+    "reviews": [
+      {
+        "user": "User9",
+        "comment": "Love it!",
+        "rating": 5
+      },
+      {
+        "user": "User10",
+        "comment": "Great value.",
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "name": "Item 6",
+    "description": "Description for Item 6",
+    "price": 14.99,
+    "image": "/images/designs/design1.webp",
+    "category": "Category A",
+    "stock": 60,
+    "rating": 4.3,
+    "reviews": [
+      {
+        "user": "User15",
+        "comment": "Good quality.",
+        "rating": 4
+      },
+      {
+        "user": "User16",
+        "comment": "Satisfied with the purchase.",
+        "rating": 4
+      }
+    ]
+  }
+]
